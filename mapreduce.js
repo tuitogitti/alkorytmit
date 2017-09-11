@@ -1,4 +1,3 @@
-
 /* map- ja reduce -funktiot ovat tärkeitä monissa
  * algoritmeissa, sillä ne pystyvät suorittamaan kerralla
  * useita toimenpiteitä ja siten nopeuttavat algoritmien suoritusta.

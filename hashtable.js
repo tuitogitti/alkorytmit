@@ -1,4 +1,3 @@
-
 /* Tämä ei ole algoritmi, vaan esimerkki hash tablesta
  * eli Mapista eli assosiatiivisesta taulukosta. ES6:ssa voi luoda
  * Map-tietorakenteen jota käytetään monissa algoritmeissa.

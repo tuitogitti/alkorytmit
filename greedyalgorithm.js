@@ -1,4 +1,3 @@
-
 /*
  * Greedy algorithm tarkoittaa algoritmia, joka perustuu siihen että pyritään saavuttamaan
  * jokaisella algoritmin tapauksen suorituskerralla mahdollisimman hyvä tulos (ollaan ahneita).

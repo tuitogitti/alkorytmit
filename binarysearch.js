@@ -1,4 +1,3 @@
-
 /*
  * binarySearch hakee taulukosta alkion (item) nimen perusteella sen indeksin.
  * Se käyttää binary search -algoritmia jolla haku tehdään nopeudella 0(log n).

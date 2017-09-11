@@ -1,4 +1,3 @@
-
 /*
  * selectionSort lajittelee taulukon alkiot, jotka
  * ovat numeroita, suurimmasta pienimpään tai pienimmästä suurimpaan ja

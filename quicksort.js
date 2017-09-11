@@ -1,4 +1,3 @@
-
 /*
  * quickSort lajittelee taulukon alkiot, jotka ovat numeroita,
  * pienimmästä suurimpaan ja palauttaa lajitellun taulukon.
