@@ -1,3 +1,4 @@
+
 /*
  * Kauppamatkustajan ongelma on ehkäpä kuuluisin NP-täydellinen ongelma jonka
  * ratkaisunopeus pyrittäessä täydelliseen ratkaisuun on O(n!). Jos läpikäytäviä

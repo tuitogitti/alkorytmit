@@ -1,3 +1,4 @@
+
 /*
  * Dijkstran algoritmi on graph-algoritmi (kaavioalgoritmi)
  * jolla haetaan graafisesta kaaviosta hakukohteita ja nopeinta reittiä

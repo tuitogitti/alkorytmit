@@ -1,3 +1,4 @@
+
 /*
  * Breadth-first search on graph-algoritmi (kaavioalgoritmi)
  * jolla haetaan graafisesta kaaviosta läpikäytävien solmujen lukumäärällä
