@@ -1,9 +1,8 @@
 /*
- *binarySearch hakee taulukosta alkion (item) nimen
- *perusteella sen indeksin. Se käyttää binary search
- *-algoritmia jolla haku tehdään nopeudella 0(log n)
- * Eli jos taulukossa on 8 alkiota, tarvitsee algoritmi
- * suorittaa enintään log8 = 3 kertaa. 2 potenssiin 3 = 8.
+ * binarySearch hakee taulukosta alkion (item) nimen perusteella sen indeksin.
+ * Se käyttää binary search -algoritmia jolla haku tehdään nopeudella 0(log n).
+ * Eli jos taulukossa on 8 alkiota, tarvitsee algoritmi suorittaa enintään
+ * log8 = 3 kertaa. 2 potenssiin 3 = 8.
  */
 
 function binarySearch(arr, item) {
