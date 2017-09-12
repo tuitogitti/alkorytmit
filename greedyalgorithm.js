@@ -11,7 +11,8 @@
  * Tämän ratkaisun nopeus on O(n*n) joten se on paljon nopeampi kuin täydellinen ratkaisu
  * jonka nopeus olisi O(n!). Ongelma joka on nopeillekin koneille liian hidas ratkaista kun
  * kaikki kombinaatiot on käytävä läpi on ns. "NP-complete" (Nondeterministic Polynomial time).
- * NP-täydellinen ongelma kannattaa ratkaista approksimaatiolla johon "ahne" algoritmi sopii hyvin.
+ * NP-täydellinen ongelma kannattaa ratkaista approksimaatiolla johon "ahne" algoritmi sopii
+ hyvin.
  */
 
 function chooseBestStations(stations, citiesNeeded) {
