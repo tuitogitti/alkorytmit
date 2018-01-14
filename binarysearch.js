@@ -22,7 +22,7 @@ function binarySearch(arr, item) {
             low = mid + 1; // uusi low
         }
     }
-    return 'Not found!'; // Jos ei löydy, tapahtuu silmukan loputtua tämä
+    return 'Item not found!'; // Jos ei löydy, tapahtuu silmukan loputtua tämä
 }
 
 let myArray = [1, 2, 3, 4, 5, 6, 'huuhaa', 8];
