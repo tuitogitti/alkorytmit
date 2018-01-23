@@ -2,8 +2,8 @@
  * Breadth-first search on graph-algoritmi (kaavioalgoritmi)
  * jolla haetaan graafisesta kaaviosta läpikäytävien solmujen lukumäärällä
  * mitattuna lyhintä reittiä haun alkupisteestä haettavaan kohteeseen.
- * Tässä tarkoituksena on löytää lyhyintä reittiä pitkin kontakti
- * roomalaiseen henkilöön (nimi päättyy us-kirjaimiin).
+ * Tässä esimerkissä etsitään kontakteja läpi käymällä lähin kontakti
+ * henkilöstä 'you' roomalaiseen henkilöön (nimi päättyy us-kirjaimiin).
  * Breadth-first search käyttää jono-tietorakennetta joka on nimensä mukaisesti
  * jono jonka alkupäästä otetaan aina uusi alkio tarkasteluun ja loppupäähän
  * lisätään uusia alkioita. Algoritmin nopeus on O(henkilöiden lkm + kontaktien lkm)
@@ -14,7 +14,9 @@ function search(name) {
 
     let searchQueue = []; // jono (FIFO-tietorakenne) on toteutettu taulukolla
     searchQueue = searchQueue.concat(graph.get(name));
-    let searched = []; // jo haetut henkilöt tallennetaan taulukkoon
+    //console.log(searchQueue);
+    // jo haetut henkilöt tallennetaan taulukkoon, samaa ei haeta kahdesti
+    let searched = [];
 
     while (searchQueue.length > 0) {
         let person = searchQueue[0]; // otetaan ulos 'vanhin' alkio
@@ -23,10 +25,10 @@ function search(name) {
         //console.log(searchQueue);
         if (!searched.includes(person)) {
             if (personIsRoman(person)) {
-                console.log(person + ' is roman!');
+                console.log(person + ' is first roman!');
                 return true;
             } else {
-                console.log('Search goes on!');
+                console.log('Search goes through ' + person);
                 searchQueue = searchQueue.concat(graph.get(person));
                 searched.push(person);
             }
@@ -40,9 +42,9 @@ graph.set('you', ['Asterix', 'Senilix', 'Amaryllix']); // omat kontaktit
 graph.set('Asterix', ['Obelix', 'Aladobix', 'Akvavitix']); // Asterixin kontaktit
 graph.set('Senilix', ['Trubadurix', 'Historix']); // Senilixin kontaktit
 graph.set('Amaryllix', ['Aladobix', 'Comix']); // Amaryllixin kontaktit
+graph.set('Akvavitix', ['Aladobix', 'Trajanus']); // Akvavitixin kontaktit
 graph.set('Obelix', ['Asterix', 'Idefix']); // Obelixin kontaktit
 graph.set('Aladobix', ['Asterix', 'Maximus']); // Aladobixin kontaktit
-graph.set('Akvavitix', ['Aladobix', 'Trajanus']); // Akvavitixin kontaktit
 
 //Tutkitaan onko henkilö roomalainen
 function personIsRoman(name) {
@@ -56,3 +58,4 @@ function personIsRoman(name) {
 //console.log(personIsRoman('Justus'));
 
 search('you');
+//search('Akvavitix');

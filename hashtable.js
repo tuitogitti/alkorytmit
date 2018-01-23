@@ -6,7 +6,7 @@
  * voi käyttää Map-tietorakennetta.
  */
 
- /*****************Äänestysesimerkki***********************/
+/*****************Äänestysesimerkki***********************/
 
 let voted = new Map(); // äänestäneet säilytetään Mapissa
 
