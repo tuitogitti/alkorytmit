@@ -13,6 +13,9 @@
 function search(name) {
 
     let searchQueue = []; // jono (FIFO-tietorakenne) on toteutettu taulukolla
+    /* Globaali graph-muuttuja näkyy JS:ssä suoraan funktion sisälle.
+    Jos muunnat tämän koodin toiselle kielelle, se ei välttämättä näy
+    funktion sisään, vaan se pitää tuoda sisään funktion argumenttina */
     searchQueue = searchQueue.concat(graph.get(name));
     //console.log(searchQueue);
     // jo haetut henkilöt tallennetaan taulukkoon, samaa ei haeta kahdesti
