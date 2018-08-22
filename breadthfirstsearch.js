@@ -17,15 +17,15 @@ function search(name) {
     Jos muunnat tämän koodin toiselle kielelle, se ei välttämättä näy
     funktion sisään, vaan se pitää tuoda sisään funktion argumenttina */
     searchQueue = searchQueue.concat(graph.get(name));
-    //console.log(searchQueue);
+    console.log(searchQueue);
     // jo haetut henkilöt tallennetaan taulukkoon, samaa ei haeta kahdesti
     let searched = [];
 
     while (searchQueue.length > 0) {
         let person = searchQueue[0]; // otetaan ulos 'vanhin' alkio
-        //console.log(person);
+        // console.log(person);
         searchQueue = searchQueue.slice(1, searchQueue.length);
-        //console.log(searchQueue);
+        // console.log(searchQueue);
         if (!searched.includes(person)) {
             if (personIsRoman(person)) {
                 console.log(person + ' is first roman!');
@@ -49,7 +49,7 @@ graph.set('Akvavitix', ['Aladobix', 'Trajanus']); // Akvavitixin kontaktit
 graph.set('Obelix', ['Asterix', 'Idefix']); // Obelixin kontaktit
 graph.set('Aladobix', ['Asterix', 'Maximus']); // Aladobixin kontaktit
 
-//Tutkitaan onko henkilö roomalainen
+// Tutkitaan onko henkilö roomalainen
 function personIsRoman(name) {
     if (name.slice(name.length - 2) === 'us') {
         return true;
@@ -58,7 +58,7 @@ function personIsRoman(name) {
     }
 }
 
-//console.log(personIsRoman('Justus'));
+// console.log(personIsRoman('Justus'));
 
-search('you');
-//search('Akvavitix');
+search('you'); // Maximus
+// search('Akvavitix'); // Trajanus
