@@ -17,7 +17,7 @@ function search(name) {
     Jos muunnat tämän koodin toiselle kielelle, se ei välttämättä näy
     funktion sisään, vaan se pitää tuoda sisään funktion argumenttina */
     searchQueue = searchQueue.concat(graph.get(name));
-    console.log(searchQueue);
+    // console.log(searchQueue);
     // jo haetut henkilöt tallennetaan taulukkoon, samaa ei haeta kahdesti
     let searched = [];
 
