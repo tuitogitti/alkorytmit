@@ -8,6 +8,8 @@
  * jono jonka alkupäästä otetaan aina uusi alkio tarkasteluun ja loppupäähän
  * lisätään uusia alkioita. Algoritmin nopeus on O(henkilöiden lkm + kontaktien lkm)
  * eli O(V+E). V = vertices ja E = edges.
+ *
+ * https://github.com/tuitogitti/alkorytmit/blob/master/breadthfirstsearch.js
  */
 
 function search(name) {
