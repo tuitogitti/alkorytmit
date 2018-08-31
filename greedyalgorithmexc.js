@@ -9,7 +9,8 @@
  * mennään aina seuraavaan lähimpään kohteeseen. Näin löydetään järkevällä
  * tarkkuudella lyhin reitti joka kulkee kaikkien kohteiden kautta.
  * Kokeile toteuttaa tämä algoritmi. Tehdään ensin Map-tietorakenne johon tallennetaan
- * muutama kaupunki ja niiden etäisyydet muihin kaupunkeihin.
+ * muutama kaupunki ja niiden etäisyydet muihin kaupunkeihin. Sitten tehdään funktio
+ * jossa luodaan reitti Set -tietorakenteeseen.
  *
  * https://github.com/tuitogitti/alkorytmit/blob/master/greedyalgorithmexc.js
  */
