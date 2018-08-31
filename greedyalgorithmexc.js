@@ -14,3 +14,9 @@
  *
  * https://github.com/tuitogitti/alkorytmit/blob/master/greedyalgorithmexc.js
  */
+
+let cities = new Map();
+
+cities.set('Jkl', new Map([['Hel', 300], ['Tam', 150], ['Kuo', 130]]));
+
+console.log(cities.get('Jkl'));
