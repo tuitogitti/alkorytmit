@@ -17,6 +17,18 @@
 
 let cities = new Map();
 
+function makeRoute(cities) {
+    let route = new Set();
+
+    /*
+    1) Valitaan satunnaisesti joku kaupunki cities mapista
+    2) Valitaan lyhin reitti seuraavaan kaupunkiin ja laitetaan kaupunki route -settiin
+    3) Mennään valitun kaupungin kohdalle cities-mapissa ja valitaan sieltä taas lyhin reitti
+    */
+    // return route;
+}
+
 cities.set('Jkl', new Map([['Hel', 300], ['Tam', 150], ['Kuo', 130]]));
+cities.set('Kuo', new Map([['Hel', 400], ['Tam', 280], ['Jkl', 130]]));
 
 console.log(cities.get('Jkl'));
