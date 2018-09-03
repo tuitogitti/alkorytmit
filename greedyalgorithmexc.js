@@ -15,10 +15,10 @@
  * https://github.com/tuitogitti/alkorytmit/blob/master/greedyalgorithmexc.js
  */
 
-let cities = new Map();
+const cities = new Map();
 
 function makeRoute(cities) {
-    let route = new Set();
+    const route = new Set();
 
     /*
     1) Valitaan satunnaisesti joku kaupunki cities mapista
