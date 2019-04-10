@@ -25,7 +25,7 @@ function binarySearch(arr, item) {
     return 'Not found!'; // Jos ei löydy, tapahtuu silmukan loputtua tämä
 }
 
-let myArray = [1, 2, 3, 4, 5, 6, 'huuhaa', 8];
+const myArray = [1, 2, 3, 4, 5, 6, 'huuhaa', 8];
 
-let index = binarySearch(myArray, 'huuhaa');
+const index = binarySearch(myArray, 'huuhaa');
 console.log(index);

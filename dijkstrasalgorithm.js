@@ -16,10 +16,10 @@
 
 /********************Graph*******************************/
 
-let graph = new Map();
-let startgraph = new Map();
-let agraph = new Map();
-let bgraph = new Map();
+const graph = new Map();
+const startgraph = new Map();
+const agraph = new Map();
+const bgraph = new Map();
 
 graph.set('start', startgraph); //aloitussolmu. Sen naapurit on esitetty startgraphissa
 startgraph.set('a', 6); //etäisyys lähdöstä a:han
@@ -32,21 +32,21 @@ bgraph.set('finish', 5); //etäisyys b:stä maaliin
 
 /********************Costs*******************************/
 
-let costs = new Map();
+const costs = new Map();
 costs.set('a', 6);
 costs.set('b', 2);
 costs.set('finish', Infinity); //ei vielä tiedossa, siksi ääretön
 
 /********************Parents*******************************/
 
-let parents = new Map();
+const parents = new Map();
 parents.set('a', 'start');
 parents.set('b', 'start');
 parents.set('finish', undefined); //ei vielä tiedossa, siksi määrittelemätön
 
 /*********************Processed**************************/
 
-let processed = [];
+const processed = [];
 
 /*********************findLowestCostNode**************************/
 
@@ -88,7 +88,7 @@ while (node !== 'finish') { // niin kauan kuin node ei ole finish (kaikki käyty
     console.log(neighbours); // Map { 'a' => 3, 'finish' => 5 }
     neighbours.forEach(function(ncost, nnode) { // käydään läpi neighbours
         console.log(nnode); // a
-        let newCost = cost + ncost;
+        const newCost = cost + ncost;
         console.log(newCost); // 2+3 = 5
         if (costs.get(nnode) > newCost) { // jos 6 > 5
             costs.set(nnode, newCost); // päivitetään costs -mappiin a:n arvoksi 5

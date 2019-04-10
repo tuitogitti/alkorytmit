@@ -8,7 +8,7 @@
 
 /*****************Äänestysesimerkki***********************/
 
-let voted = new Map(); // äänestäneet säilytetään Mapissa
+const voted = new Map(); // äänestäneet säilytetään Mapissa
 
 function checkVoter(name) {
     if (voted.get(name)) { // jos namen arvona on true
@@ -26,7 +26,7 @@ console.log('\n');
 
 /*****************Cache käyttää Mappia***********************/
 
-let cache = new Map(); // cachen data säilytetään Mapissa
+const cache = new Map(); // cachen data säilytetään Mapissa
 
 function getDataFromServer(url) {
     console.log('Data comes from server!');
@@ -38,7 +38,7 @@ function getPage(url) {
         console.log('Data comes from cache!');
         return cache.get(url); // palautetaan data cachesta
     } else {
-        let data = getDataFromServer(url); // haetaan data serveriltä
+        const data = getDataFromServer(url); // haetaan data serveriltä
         cache.set(url, data); // laitetaan data cacheen seuraava hakua varten
         return data;
     }

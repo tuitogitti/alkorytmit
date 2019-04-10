@@ -17,8 +17,7 @@
 
 function chooseBestStations(stations, citiesNeeded) {
 
-    let finalStations = new Set(); // tähän tulevat asemat jotka lopulta valitaan
-    let i = 0;
+    const finalStations = new Set(); // tähän tulevat asemat jotka lopulta valitaan
     while (citiesNeeded.size > 0) { // käydään läpi kaikki kaupungit
         let bestStation; // tähän muuttujaan paras asema joka kierroksella
         citiesCovered = new Set(); // Tähän tulevat kaupugit jotka asema kattaa
@@ -26,7 +25,7 @@ function chooseBestStations(stations, citiesNeeded) {
         stations.forEach(function(cities, station) {
             //console.log(cities);
             // intersection eli settien yhteiset alkiot uuteen settiin
-            let covered = new Set([...citiesNeeded].filter(x => cities.has(x)));
+            const covered = new Set([...citiesNeeded].filter((x) => cities.has(x)));
             //console.log(covered.size + ' > ' + citiesCovered.size);
             if (covered.size > citiesCovered.size) {
                 bestStation = station;
@@ -37,7 +36,7 @@ function chooseBestStations(stations, citiesNeeded) {
         });
         // Difference eli vähennetään setistä toisessa setissä olevat alkiot
         // kun citiesNeeded tyhjenee, silmukka päättyy
-        citiesNeeded = new Set([...citiesNeeded].filter(x => !citiesCovered.has(x)));
+        citiesNeeded = new Set([...citiesNeeded].filter((x) => !citiesCovered.has(x)));
         //console.log(citiesNeeded);
         finalStations.add(bestStation);
     }
@@ -47,9 +46,9 @@ function chooseBestStations(stations, citiesNeeded) {
 
 // set on taulukko jossa ei voi olla identtisiä alkioita eli duplikaatteja.
 // tässä ovat kaupungit joiden on kaikkien oltava asemien kuuluvuusalueella
-let citiesNeeded = new Set(['hel', 'tam', 'tur', 'kou', 'lah', 'jyv', 'vaa', 'oul']);
+const citiesNeeded = new Set(['hel', 'tam', 'tur', 'kou', 'lah', 'jyv', 'vaa', 'oul']);
 // radioasemat ja niiden kuuluvuusalueella olevat kaupungit (setit) ovat mapissa
-let stations = new Map();
+const stations = new Map();
 stations.set('radio1', new Set(['hel', 'tam', 'tur']));
 stations.set('radio2', new Set(['kou', 'hel', 'lah']));
 stations.set('radio3', new Set(['jyv', 'tam', 'vaa']));
@@ -57,6 +56,6 @@ stations.set('radio4', new Set(['tam', 'tur']));
 stations.set('radio5', new Set(['vaa', 'oul']));
 
 
-let finalStations = chooseBestStations(stations, citiesNeeded);
+const finalStations = chooseBestStations(stations, citiesNeeded);
 console.log('The final stations are: ');
 console.log(finalStations);

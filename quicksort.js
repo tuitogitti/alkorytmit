@@ -11,8 +11,8 @@
 
 function quickSort(arr) {
     let pivot; // taulukosta valitaan arvo johon muita verrataan
-    let smaller = []; // pienempi
-    let bigger = []; // suurempi
+    const smaller = []; // pienempi
+    const bigger = []; // suurempi
 
     if (arr.length < 2) { // base case
         return arr; // lopetus koska ei tarvitse sortata
@@ -33,7 +33,7 @@ function quickSort(arr) {
     }
 }
 
-let myArray = [4, 3, 6, 5, 1, 2, 8, 7];
+const myArray = [4, 3, 6, 5, 1, 2, 8, 7];
 
-let sortedArray = quickSort(myArray);
+const sortedArray = quickSort(myArray);
 console.log(sortedArray);

@@ -1,22 +1,19 @@
 {
   "ecmaVersion": 6,
   "libs": [
-    "browser"
-  ],
-  "loadEagerly": [
-    "path/to/your/js/**/*.js"
+    "browser",
+    "chai",
+    "jquery"
   ],
   "dontLoad": [
-    "path/to/your/js/**/*.js"
+    "node_modules/**"
   ],
   "plugins": {
-    "complete_strings": {
-      "maxLength": 15
-    },
-    "node": {},
-    "doc_comment": {
-      "fullDocs": true,
-      "strong": true
+    "doc_comment": true,
+    "node": {
+      "dontLoad": "",
+      "load": "",
+      "modules": ""
     }
   }
 }

@@ -39,8 +39,8 @@ function findIndexOfBiggest(arr) {
 }
 
 function selectionSort(arr, choice) {
-    let newArray = [];
-    let count = arr.length;
+    const newArray = [];
+    const count = arr.length;
     let i;
     let arr1;
     let arr2;
@@ -66,7 +66,7 @@ function selectionSort(arr, choice) {
     return newArray;
 }
 
-let myArray = [4, 3, 6, 5, 1, 2, 8, 7];
+const myArray = [4, 3, 6, 5, 1, 2, 8, 7];
 
-let sortedArray = selectionSort(myArray, 'smallest');
+const sortedArray = selectionSort(myArray, 'smallest');
 console.log(sortedArray);

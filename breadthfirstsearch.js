@@ -21,10 +21,10 @@ function search(name) {
     searchQueue = searchQueue.concat(graph.get(name));
     // console.log(searchQueue);
     // jo haetut henkilöt tallennetaan taulukkoon, samaa ei haeta kahdesti
-    let searched = [];
+    const searched = [];
 
     while (searchQueue.length > 0) {
-        let person = searchQueue[0]; // otetaan ulos 'vanhin' alkio
+        const person = searchQueue[0]; // otetaan ulos 'vanhin' alkio
         // console.log(person);
         searchQueue = searchQueue.slice(1, searchQueue.length);
         // console.log(searchQueue);
@@ -42,7 +42,7 @@ function search(name) {
 }
 
 // graph on kaavio joka on tehty Map-tietorakenteeseen
-let graph = new Map();
+const graph = new Map();
 graph.set('you', ['Asterix', 'Senilix', 'Amaryllix']); // omat kontaktit
 graph.set('Asterix', ['Obelix', 'Aladobix', 'Akvavitix']); // Asterixin kontaktit
 graph.set('Senilix', ['Trubadurix', 'Historix']); // Senilixin kontaktit
