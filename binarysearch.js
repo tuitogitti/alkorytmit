@@ -1,8 +1,8 @@
 /*
  * binarySearch hakee taulukosta alkion (item) nimen perusteella sen indeksin.
- * Se käyttää binary search -algoritmia jolla haku tehdään nopeudella 0(log n).
- * Eli jos taulukossa on 8 alkiota, tarvitsee algoritmi suorittaa enintään
- * log8 = 3 kertaa. 2 potenssiin 3 = 8.
+ * Algoritmin nopeus on 0(log n). Eli jos taulukossa on 8 alkiota, tarvitsee
+ * algoritmi suorittaa enintään log8 = 3 kertaa. 2 potenssiin 3 = 8. Ideana on
+ * että haettavien alkoiden määrää supistetaan jokaisella hakukierroksella.
  */
 
 function binarySearch(arr, item) {
@@ -12,7 +12,7 @@ function binarySearch(arr, item) {
     while (low <= high) { // toistetaan kunnes etsintä kapenee yhteen alkioon
         mid = Math.round((low + high) / 2);
         guess = arr[mid];
-
+        // console.log('kierros'); // voidaan tulostaa hakukierrosten lkm
         if (item === guess) {
             return mid; // lopetus
         }
@@ -22,10 +22,10 @@ function binarySearch(arr, item) {
             low = mid + 1; // uusi low
         }
     }
-    return 'Not found!'; // Jos ei löydy, tapahtuu silmukan loputtua tämä
+    return 'Not found!'; // Jos ei löydy, palautetaan 'Not found!'
 }
 
 const myArray = [1, 2, 3, 4, 5, 6, 'huuhaa', 8];
 
 const index = binarySearch(myArray, 'huuhaa');
-console.log(index);
+console.log('Haettu on indeksissä ' + index);

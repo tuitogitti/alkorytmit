@@ -1,21 +1,21 @@
-/*
- * Greedy algorithm tarkoittaa algoritmia, joka perustuu siihen että pyritään saavuttamaan
- * jokaisella algoritmin tapauksen suorituskerralla mahdollisimman hyvä tulos (ollaan ahneita).
- * Näin tehdään vaikka lopputulos ei olisi välttämättä paras mahdollinen. Näin siksi
- * että parhaan mahdollisen lopputuloksen saavuttamiseksi vaadittava aika on liian pitkä.
- * Yksinkertaisella "ahneella" algoritmilla lopputulos on kuitenkin lähellä parasta mahdollista
- * ja suoritus on nopea.
- * Seuraavassa pyritään löytämään mahdollisimman pieni määrä radioasemia jotka kattavat
- * kaikki vaadittavat kaupungit (set-cover -ongelma). Tämä tehdään ahneella algoritmilla
- * valitsemalla aina uusi asema joka kattaa mahdollisimman monta vapaata vaadittavaa kaupunkia.
- * Tämän ratkaisun nopeus on O(n*n) joten se on paljon nopeampi kuin täydellinen ratkaisu
- * jonka nopeus olisi O(n!). Ongelma joka on nopeillekin koneille liian hidas ratkaista kun
- * kaikki kombinaatiot on käytävä läpi on ns. "NP-complete" (Nondeterministic Polynomial time).
- * NP-täydellinen ongelma kannattaa ratkaista approksimaatiolla johon "ahne" algoritmi sopii
- hyvin.
- */
+/*setCover on ahne algoritmi jonka tarkoituksena on hakea pienin mahdollinen määrä olemassa
+* olevia joukkoja (set) jotka peittävät/kattavat (cover) kaikki määrätyt alkiot. Idea on erittäin
+* yksinkertainen: valitse joukko joka kattaa mahdollisimman monta alkiota joita ei ole vielä
+* peitetty. Ei haittaa vaikka mukana on alkioita jotka on jo peitetty. Tätä toistetaan kunnes
+* kaikki alkiot on peitetty. Algoritmin nopeus on O(n*n), joten se on approksimaation ansiosta
+* huomattavasti nopeampi kuin täydellinen ratkaisu jonka nopeus olisi O(n!). Tässä esimerkissä
+* pyritään löytämään mahdollisimman pieni määrä radioasemia jotka kattavat kaikki vaadittavat
+* kaupungit. Joukkojen määrä on esimerkissä erittäin pieni ja ratkaisu on hyvin helppo koska
+* kyseessä on vain ahneen algoritmin demo.
+* Ahne algoritmi (Greedy algorithm) tarkoittaa algoritmia, joka perustuu siihen että pyritään
+* saavuttamaan jokaisella algoritmin tapauksen suorituskerralla mahdollisimman hyvä tulos
+* (ollaan ahneita). Näin tehdään vaikka lopputulos ei olisi välttämättä paras mahdollinen,
+* sillä parhaan mahdollisen lopputuloksen saavuttamiseksi vaadittava aika on liian pitkä.
+* Yksinkertaisella "ahneella" algoritmilla lopputulos on kuitenkin lähellä parasta mahdollista
+* (approksimaatio) ja suoritus on nopea.
+*/
 
-function chooseBestStations(stations, citiesNeeded) {
+function setCover(stations, citiesNeeded) {
 
     const finalStations = new Set(); // tähän tulevat asemat jotka lopulta valitaan
     while (citiesNeeded.size > 0) { // käydään läpi kaikki kaupungit
@@ -44,7 +44,7 @@ function chooseBestStations(stations, citiesNeeded) {
     return finalStations;
 }
 
-// set on taulukko jossa ei voi olla identtisiä alkioita eli duplikaatteja.
+// set on taulukon tapainen tietorakenne jossa ei voi olla identtisiä alkioita eli duplikaatteja.
 // tässä ovat kaupungit joiden on kaikkien oltava asemien kuuluvuusalueella
 const citiesNeeded = new Set(['hel', 'tam', 'tur', 'kou', 'lah', 'jyv', 'vaa', 'oul']);
 // radioasemat ja niiden kuuluvuusalueella olevat kaupungit (setit) ovat mapissa
@@ -56,6 +56,6 @@ stations.set('radio4', new Set(['tam', 'tur']));
 stations.set('radio5', new Set(['vaa', 'oul']));
 
 
-const finalStations = chooseBestStations(stations, citiesNeeded);
+const finalStations = setCover(stations, citiesNeeded);
 console.log('The final stations are: ');
 console.log(finalStations);

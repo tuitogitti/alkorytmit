@@ -1,15 +1,23 @@
 /*
- * selectionSort lajittelee taulukon alkiot, jotka
- * ovat numeroita, suurimmasta pienimpään tai pienimmästä suurimpaan ja
- * palauttaa lajitellun taulukon. Algoritmin nopeus on 0(n*n)
- * Eli jos taulukossa on 8 alkiota, tarvitsee algoritmi
- * suorittaa enintään 64 kertaa (oikeasti 32 kertaa). Todellisuudessa
+ * selectionSort lajittelee taulukon alkiot, jotka ovat numeroita,
+ * suurimmasta pienimpään tai pienimmästä suurimpaan ja palauttaa
+ * lajitellun taulukon. Algoritmi käyttää kahta apufunktiota eli
+ * findIndexOfSmallest ja findIndexOfBiggest. Algoritmin olisi voinut
+ * tehdä huomattavasti vähemmällä koodilla, mutta tässä on tarkoituksella
+ * käytetty ei-funktionaalista koodia ja tehty lajittelut molemmissa
+ * järjestyksissä.
+ *
+ * Algoritmin teoreettinen nopeus on 0(n*n) eli jos taulukossa on 8 alkiota,
+ * tarvitsee algoritmi suorittaa enintään 64 kertaa. Todellisuudessa
  * koska n:n lukumäärä vähenee yhdellä joka kierroksella, tarvitsee algoritmi
- * suorittaa maksimissaan vain (n*n)*0.5 kertaa, mutta notaatio on O(n*n).
- * selectionSort käyttää kahta apufunktiota jotka ovat findIndexOfSmallest ja
- * findIndexOfBiggest
+ * suorittaa maksimissaan vain (n*n)/2 kertaa, mutta notaatio on silti O(n*n).
+ * Valintalajittelu perustuu siihen että taulukosta valitaan esim. pienin alkio
+ * joka sijoitetaan uuden taulukon alkuun ja loput alkiot yhdistetään taulukoksi
+ * josta taas valitaan pienin jne. kunnes kaikki alkiot ovat järjestyksessä
+ * uudessa taulukossa.
  */
 
+// apufunktio joka hakee pienimmän alkion indeksin
 function findIndexOfSmallest(arr) {
     let smallest = arr[0];
     let smallestIndex = 0;
@@ -24,6 +32,7 @@ function findIndexOfSmallest(arr) {
     return smallestIndex;
 }
 
+// apufunktio joka hakee suurimman alkion indeksin
 function findIndexOfBiggest(arr) {
     let biggest = arr[0];
     let biggestIndex = 0;

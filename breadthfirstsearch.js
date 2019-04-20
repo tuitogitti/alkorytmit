@@ -1,12 +1,12 @@
 /*
- * Breadth-first search on graph-algoritmi (kaavioalgoritmi)
- * jolla haetaan graafisesta kaaviosta läpikäytävien solmujen lukumäärällä
- * mitattuna lyhintä reittiä haun alkupisteestä haettavaan kohteeseen.
- * Tässä esimerkissä etsitään kontakteja läpi käymällä lähin kontakti
- * henkilöstä 'you' roomalaiseen henkilöön (nimi päättyy us-kirjaimiin).
- * Breadth-first search käyttää jono-tietorakennetta joka on nimensä mukaisesti
- * jono jonka alkupäästä otetaan aina uusi alkio tarkasteluun ja loppupäähän
- * lisätään uusia alkioita. Algoritmin nopeus on O(henkilöiden lkm + kontaktien lkm)
+ * Breadth-first search eli leveyshaku on verkkoalgoritmi eli graph-algoritmi
+ * jolla haetaan verkosta lyhintä reittiä solmusta toiseen läpikäytävien solmujen
+ * lukumäärällä mitattuna. Tässä esimerkissä etsitään kontakteja läpi käymällä lähin
+ * kontakti henkilöstä 'you' roomalaiseen henkilöön (nimi päättyy us-kirjaimiin).
+ * Breadth-first search käyttää jono-tietorakennetta joka on nimensä mukaisesti jono
+ * jonka alkupäästä otetaan aina uusi alkio tarkasteluun ja loppupäähän lisätään uusia
+ * alkioita. Jono on tässä toteutettu taulukon avulla, mutta JS:lle löytyy npm -pakettina
+ * myös oikeita jonon toteutuksia. Algoritmin nopeus on O(henkilöiden lkm + kontaktien lkm)
  * eli O(V+E). V = vertices ja E = edges.
  *
  * https://github.com/tuitogitti/alkorytmit/blob/master/breadthfirstsearch.js
@@ -41,7 +41,7 @@ function search(name) {
     }
 }
 
-// graph on kaavio joka on tehty Map-tietorakenteeseen
+// graph on verkko joka on tehty Map-tietorakenteeseen
 const graph = new Map();
 graph.set('you', ['Asterix', 'Senilix', 'Amaryllix']); // omat kontaktit
 graph.set('Asterix', ['Obelix', 'Aladobix', 'Akvavitix']); // Asterixin kontaktit

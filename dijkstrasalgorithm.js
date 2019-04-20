@@ -1,12 +1,11 @@
 /*
- * Dijkstran algoritmi on graph-algoritmi (kaavioalgoritmi)
- * jolla haetaan graafisesta kaaviosta hakukohteita ja nopeinta reittiä
- * haun alkupisteestä haettavaan kohteeseen. Se eroaa Breadth-first searchista
- * siten että kaavio on painotettu (weighted). Kohteiden väliset suhteet eivät
- * ole samanarvoisia vaan algoritmi ottaa suhteiden väliset erot (esim. reitin
- * vaatiman matka-ajan) huomioon.
+ * Dijkstran algoritmi on verkkoalgoritmi eli graph-algoritmi jolla haetaan
+ * verkosta solmuja ja nopeinta reittiä solmusta toiseen. Se eroaa leveyshausta
+ * siten että verkko on painotettu. Solmujen väliset kaaret eivät ole
+ * samanarvoisia vaan algoritmi ottaa kaarien väliset erot (esim. reitin
+ * vaatima matka-aika) huomioon.
  *
- * Seuraavassa etsitään nopein reitti kaaviosta Dijkstran algoritmilla.
+ * Seuraavassa etsitään nopein reitti verkosta Dijkstran algoritmilla.
  * Algoritmi tarvitsee kolme mappia jotka ovat graph(esittää kaavion),
  * costs(esittää reittien pituudet) ja parents (esittää solmujen(node)
  * edeltävät solmut) sekä yhden taulukon processed(tallentaa käsitellyt
