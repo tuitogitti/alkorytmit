@@ -1,0 +1,14 @@
+{
+  "name": "alkorytmit",
+  "version": "1.0.0",
+  "description": "Some common algorithms created with JS",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tuito",
+  "license": "ISC",
+  "dependencies": {
+    "js-regression": "^1.0.10"
+  }
+}
