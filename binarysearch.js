@@ -1,5 +1,5 @@
 /*
- * binarySearch hakee taulukosta alkion (item) nimen perusteella sen indeksin.
+ * binarySearch hakee järjestetystä taulukosta alkion (item) nimen perusteella sen indeksin.
  * Algoritmin nopeus on 0(log n). Eli jos taulukossa on 8 alkiota, tarvitsee
  * algoritmi suorittaa enintään log8 = 3 kertaa. 2 potenssiin 3 = 8. Ideana on
  * että haettavien alkoiden määrää supistetaan jokaisella hakukierroksella.

@@ -10,7 +10,7 @@
  * tarkkuudella lyhin reitti joka kulkee kaikkien kohteiden kautta.
  * Kokeile toteuttaa tämä algoritmi. Tehdään ensin Map-tietorakenne johon tallennetaan
  * muutama kaupunki ja niiden etäisyydet muihin kaupunkeihin. Sitten tehdään funktio
- * jossa luodaan reitti Set -tietorakenteeseen.
+ * jossa luodaan reitti taulukkoon.
  *
  * https://github.com/tuitogitti/alkorytmit/blob/master/greedyalgorithmexc.js
  */
@@ -18,12 +18,14 @@
 const cities = new Map();
 
 function makeRoute(cities) {
-    const route = new Set();
+    const route = [];
 
     /*
     1) Valitaan satunnaisesti joku kaupunki cities mapista
-    2) Valitaan lyhin reitti seuraavaan kaupunkiin ja laitetaan kaupunki route -settiin
-    3) Mennään valitun kaupungin kohdalle cities-mapissa ja valitaan sieltä taas lyhin reitti
+    2) Valitaan lyhin reitti seuraavaan kaupunkiin ja laitetaan valittu kaupunki route -taulukkoon
+    3) Mennään cities-mapissa edellä valitun kaupungin kohdalle ja valitaan taas lyhin reitti
+    seuraavaan kaupunkiin joka ei jo ole route -taulukossa.
+    4) Tätä toistetaan niin kauan kunnes kaikki kaupungit on käyty läpi
     */
     // return route;
 }
