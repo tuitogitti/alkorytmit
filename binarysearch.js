@@ -1,5 +1,5 @@
 /*
- * binarySearch hakee järjestetystä taulukosta alkion (item) nimen perusteella sen indeksin.
+ * binarySearch hakee järjestetystä taulukosta alkion (item) arvon perusteella sen indeksin.
  * Algoritmin nopeus on 0(log n). Eli jos taulukossa on 8 alkiota, tarvitsee
  * algoritmi suorittaa enintään log8 = 3 kertaa. 2 potenssiin 3 = 8. Ideana on
  * että haettavien alkoiden määrää supistetaan jokaisella hakukierroksella.
@@ -25,7 +25,7 @@ function binarySearch(arr, item) {
     return 'Not found!'; // Jos ei löydy, palautetaan 'Not found!'
 }
 
-const myArray = [1, 2, 3, 4, 5, 6, 'huuhaa', 8];
+const myArray = [1, 2, 8, 14, 15, 66, 100, 898];
 
-const index = binarySearch(myArray, 'huuhaa');
-console.log('Haettu on indeksissä ' + index);
+const index = binarySearch(myArray, 100);
+console.log('Haettu alkio on indeksissä ' + index);
