@@ -1,7 +1,7 @@
-/* map- ja reduce -funktiot ovat tärkeitä monissa
- * algoritmeissa, sillä ne pystyvät suorittamaan kerralla
- * useita toimenpiteitä ja siten nopeuttavat algoritmien suoritusta.
- * Näitä voidaan käyttää esim. suorittamaan suuria määriä SQL-lauseita.
+/* map- ja reduce -metodit ovat käyttökelpoisia
+monenlaisissa algoritmeissa, sillä niissä yhdistyy
+iteraatio ja argumenttina olevan callbackin suorittama
+operaatio.
  */
 
 const arr1 = [1, 5, 10, 15];
