@@ -13,18 +13,18 @@
  */
 
 function insertionSort(arr) {
-
-    for (let i = 0; i < arr.length; i++) {
-        const temp = arr[i]; // käsiteltävä alkio temp -muuttujaan
-        let j = i - 1; // edeltävän alkion indeksi on j
-        while (j >= 0 && arr[j] > temp) { // jos edeltävä > käsiteltävä
-            arr[j + 1] = arr[j]; // edeltävä käsiteltävän paikalle
-            j--; // seuraava edeltävä alkio on yhtä pienemmässä indeksissä
-        }
-        // käsiteltävä alkio sijoitetaan oikealle paikalle (tähän mennessä)
-        arr[j + 1] = temp;
+  for (let i = 0; i < arr.length; i++) {
+    const temp = arr[i]; // käsiteltävä alkio temp -muuttujaan
+    let j = i - 1; // edeltävän alkion indeksi on j
+    while (j >= 0 && arr[j] > temp) {
+      // jos edeltävä > käsiteltävä
+      arr[j + 1] = arr[j]; // edeltävä käsiteltävän paikalle
+      j--; // seuraava edeltävä alkio on yhtä pienemmässä indeksissä
     }
-    return arr;
+    // käsiteltävä alkio sijoitetaan oikealle paikalle (tähän mennessä)
+    arr[j + 1] = temp;
+  }
+  return arr;
 }
 
 const myArray = [4, 6, 3, 1, 8, 2, 5, 7];

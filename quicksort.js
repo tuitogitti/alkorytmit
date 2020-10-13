@@ -10,27 +10,28 @@
  */
 
 function quickSort(arr) {
-    let pivot; // taulukosta valitaan arvo johon muita verrataan
-    const smaller = []; // pienempi
-    const bigger = []; // suurempi
+  let pivot; // taulukosta valitaan arvo johon muita verrataan
+  const smaller = []; // pienempi
+  const bigger = []; // suurempi
 
-    if (arr.length < 2) { // base case
-        return arr; // lopetus koska ei tarvitse sortata
-    } else { // recursive case
-        pivot = arr[0];
-        for (i = 1; i < arr.length; i++) {
-
-            if (arr[i] <= pivot) {
-                smaller.push(arr[i]);
-                //console.log('smaller: ' + smaller);
-            }
-            if (arr[i] > pivot) {
-                bigger.push(arr[i]);
-                //console.log('bigger: ' + bigger);
-            }
-        }
-        return ((quickSort(smaller)).concat(pivot)).concat(quickSort(bigger)); // rekursio
+  if (arr.length < 2) {
+    // base case
+    return arr; // lopetus koska ei tarvitse sortata
+  } else {
+    // recursive case
+    pivot = arr[0];
+    for (i = 1; i < arr.length; i++) {
+      if (arr[i] <= pivot) {
+        smaller.push(arr[i]);
+        //console.log('smaller: ' + smaller);
+      }
+      if (arr[i] > pivot) {
+        bigger.push(arr[i]);
+        //console.log('bigger: ' + bigger);
+      }
     }
+    return quickSort(smaller).concat(pivot).concat(quickSort(bigger)); // rekursio
+  }
 }
 
 const myArray = [4, 3, 6, 5, 1, 2, 8, 7];

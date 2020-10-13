@@ -50,56 +50,59 @@ const processed = [];
 /*********************findLowestCostNode**************************/
 
 function findLowestCostNode(costs) {
-    lowestCost = Infinity;
-    lowestCostNode = false; // alkutilanne
+  lowestCost = Infinity;
+  lowestCostNode = false; // alkutilanne
 
-    costs.forEach(function(cost, node) {
-        if (cost < lowestCost && !processed.includes(node)) {
-            lowestCost = cost;
-            lowestCostNode = node;
-        }
-    });
-    return lowestCostNode;
+  costs.forEach(function (cost, node) {
+    if (cost < lowestCost && !processed.includes(node)) {
+      lowestCost = cost;
+      lowestCostNode = node;
+    }
+  });
+  return lowestCostNode;
 }
 
 /*********************fastestRouteNodes**************************/
 
 function fastestRouteNodes(parents) {
-    lastnode = parents.get('finish'); // aluksi a
-    let route = 'finish'; // routen alkutila
-    let i = 0;
-    while (i < parents.size && typeof lastnode !== 'undefined') {
-        route = lastnode + ' -> ' + route; // reitin kasvatus
-        lastnode = parents.get(lastnode); // uusi lastnode, ekalla kierroksella tulee b
-        //console.log(lastnode);
-        i++;
-    }
-    return route;
+  lastnode = parents.get('finish'); // aluksi a
+  let route = 'finish'; // routen alkutila
+  let i = 0;
+  while (i < parents.size && typeof lastnode !== 'undefined') {
+    route = lastnode + ' -> ' + route; // reitin kasvatus
+    lastnode = parents.get(lastnode); // uusi lastnode, ekalla kierroksella tulee b
+    //console.log(lastnode);
+    i++;
+  }
+  return route;
 }
 
 console.log(findLowestCostNode(costs)); // aluksi b jonka cost on 2
 
 let node = findLowestCostNode(costs); // etsitään node jonne reitti lyhin
-while (node !== 'finish') { // niin kauan kuin node ei ole finish (kaikki käyty läpi)
-    cost = costs.get(node);
-    console.log(cost); // aluksi b ja cost 2
-    neighbours = graph.get(node);
-    console.log(neighbours); // Map { 'a' => 3, 'finish' => 5 }
-    neighbours.forEach(function(ncost, nnode) { // käydään läpi neighbours
-        console.log(nnode); // a
-        const newCost = cost + ncost;
-        console.log(newCost); // 2+3 = 5
-        if (costs.get(nnode) > newCost) { // jos 6 > 5
-            costs.set(nnode, newCost); // päivitetään costs -mappiin a:n arvoksi 5
-            console.log(costs); // Map { 'a' => 5, 'b' => 2, 'finish' => Infinity }
-            parents.set(nnode, node); // päivitetään parents -map
-            console.log(parents); // Map { 'a' => 'b', 'b' => 'start', 'finish' => undefined }
-        }
-    });
-    processed.push(node); // node laitetaan processed-taulukkoon
-    console.log(processed); // [ 'b' ]
-    node = findLowestCostNode(costs);
-    console.log('lowest cost node is now: ' + node);
+while (node !== 'finish') {
+  // niin kauan kuin node ei ole finish (kaikki käyty läpi)
+  cost = costs.get(node);
+  console.log(cost); // aluksi b ja cost 2
+  neighbours = graph.get(node);
+  console.log(neighbours); // Map { 'a' => 3, 'finish' => 5 }
+  neighbours.forEach(function (ncost, nnode) {
+    // käydään läpi neighbours
+    console.log(nnode); // a
+    const newCost = cost + ncost;
+    console.log(newCost); // 2+3 = 5
+    if (costs.get(nnode) > newCost) {
+      // jos 6 > 5
+      costs.set(nnode, newCost); // päivitetään costs -mappiin a:n arvoksi 5
+      console.log(costs); // Map { 'a' => 5, 'b' => 2, 'finish' => Infinity }
+      parents.set(nnode, node); // päivitetään parents -map
+      console.log(parents); // Map { 'a' => 'b', 'b' => 'start', 'finish' => undefined }
+    }
+  });
+  processed.push(node); // node laitetaan processed-taulukkoon
+  console.log(processed); // [ 'b' ]
+  node = findLowestCostNode(costs);
+  console.log('lowest cost node is now: ' + node);
 }
 
 console.log('The fastest route is ' + costs.get('finish') + ' steps long');

@@ -11,12 +11,13 @@
 const voted = new Map(); // äänestäneet säilytetään Mapissa
 
 function checkVoter(name) {
-    if (voted.get(name)) { // jos namen arvona on true
-        console.log('Not allowed to vote again!');
-    } else {
-        voted.set(name, true); // merkataan namen arvoksi true
-        console.log('Allowed to vote');
-    }
+  if (voted.get(name)) {
+    // jos namen arvona on true
+    console.log('Not allowed to vote again!');
+  } else {
+    voted.set(name, true); // merkataan namen arvoksi true
+    console.log('Allowed to vote');
+  }
 }
 
 checkVoter('Tommi');
@@ -29,19 +30,20 @@ console.log('\n');
 const cache = new Map(); // cachen data säilytetään Mapissa
 
 function getDataFromServer(url) {
-    console.log('Data comes from server!');
-    return 'This is the data!';
+  console.log('Data comes from server!');
+  return 'This is the data!';
 }
 
 function getPage(url) {
-    if (cache.get(url)) { // jos url sisältää dataa
-        console.log('Data comes from cache!');
-        return cache.get(url); // palautetaan data cachesta
-    } else {
-        const data = getDataFromServer(url); // haetaan data serveriltä
-        cache.set(url, data); // laitetaan data cacheen seuraava hakua varten
-        return data;
-    }
+  if (cache.get(url)) {
+    // jos url sisältää dataa
+    console.log('Data comes from cache!');
+    return cache.get(url); // palautetaan data cachesta
+  } else {
+    const data = getDataFromServer(url); // haetaan data serveriltä
+    cache.set(url, data); // laitetaan data cacheen seuraava hakua varten
+    return data;
+  }
 }
 
 console.log(getPage('www.sivu.fi'));

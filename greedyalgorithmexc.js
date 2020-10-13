@@ -16,9 +16,9 @@
 const cities = new Map();
 
 function makeRoute(cities, start) {
-    const route = [];
+  const route = [];
 
-    /*
+  /*
     1) Valitaan aloituskaupunki cities mapista
     2) Valitaan lyhin reitti seuraavaan kaupunkiin ja laitetaan valittu kaupunki route -taulukkoon
     3) Mennään cities-mapissa edellä valitun kaupungin kohdalle ja valitaan taas lyhin reitti
@@ -28,10 +28,24 @@ function makeRoute(cities, start) {
     Tämä ratkaisu toimii jos kaupunkeja on vain muutama, mutta jos kaupunkeja on vaikkapa sata
     kappaletta, kasvaa cities -map turhan suureksi. Olisiko jokin toinen tietorakenne silloin parempi?
     */
-    return route;
+  return route;
 }
 
-cities.set('Jkl', new Map([['Hel', 300], ['Tam', 150], ['Kuo', 130]]));
-cities.set('Kuo', new Map([['Hel', 400], ['Tam', 280], ['Jkl', 130]]));
+cities.set(
+  'Jkl',
+  new Map([
+    ['Hel', 300],
+    ['Tam', 150],
+    ['Kuo', 130],
+  ])
+);
+cities.set(
+  'Kuo',
+  new Map([
+    ['Hel', 400],
+    ['Tam', 280],
+    ['Jkl', 130],
+  ])
+);
 
 console.log(cities.get('Jkl'));

@@ -19,60 +19,59 @@
 
 // apufunktio joka hakee pienimmän alkion indeksin
 function findIndexOfSmallest(arr) {
-    let smallest = arr[0];
-    let smallestIndex = 0;
-    let i;
+  let smallest = arr[0];
+  let smallestIndex = 0;
+  let i;
 
-    for (i = 1; i < arr.length; i++) {
-        if (arr[i] < smallest) {
-            smallest = arr[i];
-            smallestIndex = i;
-        }
+  for (i = 1; i < arr.length; i++) {
+    if (arr[i] < smallest) {
+      smallest = arr[i];
+      smallestIndex = i;
     }
-    return smallestIndex;
+  }
+  return smallestIndex;
 }
 
 // apufunktio joka hakee suurimman alkion indeksin
 function findIndexOfBiggest(arr) {
-    let biggest = arr[0];
-    let biggestIndex = 0;
-    let i;
+  let biggest = arr[0];
+  let biggestIndex = 0;
+  let i;
 
-    for (i = 1; i < arr.length; i++) {
-        if (arr[i] > biggest) {
-            biggest = arr[i];
-            biggestIndex = i;
-        }
+  for (i = 1; i < arr.length; i++) {
+    if (arr[i] > biggest) {
+      biggest = arr[i];
+      biggestIndex = i;
     }
-    return biggestIndex;
+  }
+  return biggestIndex;
 }
 
 function selectionSort(arr, choice) {
-    const newArray = [];
-    const count = arr.length;
-    let i;
-    let arr1;
-    let arr2;
+  const newArray = [];
+  const count = arr.length;
+  let i;
+  let arr1;
+  let arr2;
 
-    for (i = 0; i < count; i++) {
-
-        if (choice === 'smallest') {
-            smallestIndex = findIndexOfSmallest(arr);
-            //console.log(smallestIndex);
-            newArray.push(arr[smallestIndex]);
-            arr1 = arr.slice(0, smallestIndex); //poistetaan kaikki ennen pienintä
-            arr2 = arr.slice(smallestIndex + 1, arr.length); // pienimmän jälkeen
-            arr = arr1.concat(arr2);
-            //console.log(arr);
-        } else {
-            biggestIndex = findIndexOfBiggest(arr);
-            newArray.push(arr[biggestIndex]);
-            arr1 = arr.slice(0, biggestIndex);
-            arr2 = arr.slice(biggestIndex + 1, arr.length);
-            arr = arr1.concat(arr2);
-        }
+  for (i = 0; i < count; i++) {
+    if (choice === 'smallest') {
+      smallestIndex = findIndexOfSmallest(arr);
+      //console.log(smallestIndex);
+      newArray.push(arr[smallestIndex]);
+      arr1 = arr.slice(0, smallestIndex); //poistetaan kaikki ennen pienintä
+      arr2 = arr.slice(smallestIndex + 1, arr.length); // pienimmän jälkeen
+      arr = arr1.concat(arr2);
+      //console.log(arr);
+    } else {
+      biggestIndex = findIndexOfBiggest(arr);
+      newArray.push(arr[biggestIndex]);
+      arr1 = arr.slice(0, biggestIndex);
+      arr2 = arr.slice(biggestIndex + 1, arr.length);
+      arr = arr1.concat(arr2);
     }
-    return newArray;
+  }
+  return newArray;
 }
 
 const myArray = [4, 3, 6, 5, 1, 2, 8, 7];

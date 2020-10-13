@@ -6,23 +6,26 @@
  */
 
 function binarySearch(arr, item) {
-    let low = 0;
-    let high = arr.length - 1;
+  let low = 0;
+  let high = arr.length - 1;
 
-    while (low <= high) { // toistetaan kunnes etsintä kapenee yhteen alkioon
-        mid = Math.round((low + high) / 2);
-        guess = arr[mid];
-        // console.log('kierros'); // voidaan tulostaa hakukierrosten lkm
-        if (item === guess) {
-            return mid; // lopetus
-        }
-        if (item < guess) { // item on puoliväliä alempana
-            high = mid - 1; // uusi high
-        } else { // item on puoliväliä ylempänä
-            low = mid + 1; // uusi low
-        }
+  while (low <= high) {
+    // toistetaan kunnes etsintä kapenee yhteen alkioon
+    mid = Math.round((low + high) / 2);
+    guess = arr[mid];
+    // console.log('kierros'); // voidaan tulostaa hakukierrosten lkm
+    if (item === guess) {
+      return mid; // lopetus
     }
-    return 'Not found!'; // Jos ei löydy, palautetaan 'Not found!'
+    if (item < guess) {
+      // item on puoliväliä alempana
+      high = mid - 1; // uusi high
+    } else {
+      // item on puoliväliä ylempänä
+      low = mid + 1; // uusi low
+    }
+  }
+  return 'Not found!'; // Jos ei löydy, palautetaan 'Not found!'
 }
 
 const myArray = [1, 2, 8, 14, 15, 66, 100, 898];
