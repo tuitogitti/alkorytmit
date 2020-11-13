@@ -1,8 +1,8 @@
 /*
- * Lineaarinen regressio on yksinkertaisin regressioalgoritmi. Se muodostuu lähinnä kaavoista
+ * Lineaarinen regressio on yksinkertaisin regressioalgoritmi. Se muodostuu kaavoista
  * joilla lasketaan regressiomuuttujat; vakiotekijä, regressiosuoran kulmakerroin ja
  * luotettavuusarvo. Muuttujat lasketaan tunnetusta datasta jota koneoppimisessa
- * kertyy jatkuvasti lisää jolloin ennuste tarkentuu. Haluttu arvio eli ennuste lasketaan
+ * kertyy jatkuvasti lisää jolloin ennuste tarkentuu. Ennuste eli arvio lasketaan
  * kaavalla y = a + b*x. y:n arvo voi olla myös monesta muuttujasta riippuvainen, jolloin
  * kaava on y = a + b1*x1 + b2*x2 ... + bn*xn.
  * Seuraavassa yksinkertaisessa esimerkissä arvioidaan hauen painoa sen pituuden perusteella
@@ -16,7 +16,7 @@
  * http://stats.blue/Stats_Suite/correlation_regression_calculator.html
  */
 function linearRegression(x, y) {
-  const lr = {}; // Regression tulokset tulevat tähän olioon
+  const lr = {}; // Tunnetusta datasta laskettavat regressiomuuttujat tulevat tähän olioon
   const n = y.length;
   let sumX = 0;
   let sumY = 0;
@@ -31,10 +31,10 @@ function linearRegression(x, y) {
     sumXx += x[i] * x[i];
     sumYy += y[i] * y[i];
   }
-  // regressiomuuttujien laskukaavat
-  lr['slope'] = (n * sumXy - sumX * sumY) / (n * sumXx - sumX * sumX);
-  lr['intercept'] = (sumY - lr.slope * sumX) / n;
-  lr['r2'] = Math.pow(
+  // Regressiomuuttujien laskukaavat. Käytetään pienimmän neliösumman menetelmää (least squares) 
+  lr.slope = (n * sumXy - sumX * sumY) / (n * sumXx - sumX * sumX);
+  lr.intercept = (sumY - lr.slope * sumX) / n;
+  lr.r2 = Math.pow(
     (n * sumXy - sumX * sumY) /
       Math.sqrt((n * sumXx - sumX * sumX) * (n * sumYy - sumY * sumY)),
     2
