@@ -1,22 +1,24 @@
 /*
- * quickSort lajittelee taulukon alkiot, jotka ovat numeroita,
- * pienimmästä suurimpaan ja palauttaa lajitellun taulukon.
- * Algoritmin nopeus on O(n*log n) eli jos taulukossa
- * on 8 alkiota, tarvitsee algoritmi suorittaa enintään 8*3 = 24 kertaa.
- * Eli sen pitäisi yleensä olla hieman nopeampi kuin selection sort.
- * quickSort käyttää rekursiota joka on yleinen periaate algoritmeissa.
- * Ensin etsitään mahdollisimman yksinkertainen 'base case'
- * ja jos se ei toteudu, toistetaan 'recursive casea'.
+ * QuickSort lajittelee taulukon alkiot, jotka ovat numeroita, pienimmästä
+ * suurimpaan ja palauttaa lajitellun taulukon. Algoritmin nopeus on O(n*log n)
+ * eli jos taulukossa on 8 alkiota, tarvitsee algoritmi suorittaa enintään
+ * 8*3 = 24 kertaa. QuickSort käyttää rekursiota. Ideana on jakaa ongelma
+ * osaongelmiin jotka ratkaistaan rekursiivisesti. Osaongelmat tallennetaan
+ * smaller ja bigger -taulukoihin. Tässä esimerkissä kerätään "pivot" -alkiota
+ * pienemmät alkiot smaller -taulukkoon ja suuremmat alkiot bigger -taulukkoon.
+ * Rekursion periaatteena on, että ensin katsotaan toteutuuko mahdollisimman
+ * yksinkertainen 'base case', joka on samalla termination case, ja jos se ei
+ * toteudu, toistetaan 'recursive casea'.
  */
 
 function quickSort(arr) {
-  let pivot; // taulukosta valitaan arvo johon muita verrataan
-  const smaller = []; // pienempi
-  const bigger = []; // suurempi
+  let pivot; // taulukosta valitaan arvo johon muita arvoja verrataan
+  const smaller = []; // pienemmmät arvot tähän taulukkoon
+  const bigger = []; // suuremmmat arvot tähän taulukkoon
 
   if (arr.length < 2) {
     // base case
-    return arr; // lopetus koska ei tarvitse sortata
+    return arr; // termination eli lopetus koska ei tarvitse sortata
   } else {
     // recursive case
     pivot = arr[0];
@@ -30,7 +32,8 @@ function quickSort(arr) {
         //console.log('bigger: ' + bigger);
       }
     }
-    return quickSort(smaller).concat(pivot).concat(quickSort(bigger)); // rekursio
+    // rekursio jossa yhdistetään pivot ja lajitellut taulukot
+    return quickSort(smaller).concat(pivot).concat(quickSort(bigger));
   }
 }
 

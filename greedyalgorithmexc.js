@@ -27,6 +27,8 @@ function makeRoute(cities, start) {
 
     Tämä ratkaisu toimii jos kaupunkeja on vain muutama, mutta jos kaupunkeja on vaikkapa sata
     kappaletta, kasvaa cities -map turhan suureksi. Olisiko jokin toinen tietorakenne silloin parempi?
+    Mitä ajattelisit sellaisesta ratkaisusta, että valitaan kerrallaan vaikkapa viisi lähintä kaupunkia 
+    ja lasketaan lyhin reitti jolla ne voidaan käydä läpi ja siirrytään seuraaviin viiteen kaupunkiin jne...?
     */
   return route;
 }
