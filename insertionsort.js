@@ -9,7 +9,7 @@
  * vaihdetaan paikat jne... Joka kierroksella käsiteltävä alkio sijoitetaan
  * siihen mennessä läpikäytyjen alkioiden joukossa oikealle paikalleen,
  * kunnes koko taulukko on käyty läpi. Algoritmia on helpointa havainnollistaa
- * käymällä sitä läpi esim. VsCoden debuggerilla.
+ * käymällä sitä läpi esim. VSCoden debuggerilla.
  */
 
 function insertionSort(arr) {

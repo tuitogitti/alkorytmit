@@ -1,4 +1,4 @@
-/*setCover on ahne algoritmi jonka tarkoituksena on hakea pienin mahdollinen määrä olemassa
+/* SetCover on ahne algoritmi jonka tarkoituksena on hakea pienin mahdollinen määrä olemassa
  * olevia joukkoja (set) jotka peittävät/kattavat (cover) kaikki määrätyt alkiot. Idea on erittäin
  * yksinkertainen: valitse joukko joka kattaa mahdollisimman monta alkiota joita ei ole vielä
  * peitetty. Ei haittaa vaikka mukana on alkioita jotka on jo peitetty. Tätä toistetaan kunnes
@@ -16,38 +16,35 @@
  */
 
 function setCover(stations, citiesNeeded) {
-  const finalStations = new Set(); // tähän tulevat asemat jotka lopulta valitaan
+  const finalStations = new Set(); // Radioasemat jotka lopulta valitaan
+  // Toistetaan niin kauan kuin citiesNeeded -setissä on alkioita
   while (citiesNeeded.size > 0) {
-    // käydään läpi kaikki kaupungit
-    let bestStation; // tähän muuttujaan paras asema joka kierroksella
-    citiesCovered = new Set(); // Tähän tulevat kaupugit jotka asema kattaa
-    //console.log('New round!');
+    let bestStation; // Sopivin eli paras radioasema joka valitaan jokaisella kierroksella
+    // Uudet kaupungit jotka kierroksella tähän mennessä paras löydetty asema kattaa
+    citiesCovered = new Set();
+    // Käydään läpi kaikki radioasemat
     stations.forEach(function (cities, station) {
-      //console.log(cities);
-      // intersection eli settien yhteiset alkiot uuteen settiin
+      // citiesNeeded ja cities -settien yhteiset alkiot laitetaan covered -settiin
       const covered = new Set([...citiesNeeded].filter((x) => cities.has(x)));
-      //console.log(covered.size + ' > ' + citiesCovered.size);
+      // Jos covered -setti sisältää enemmän alkioita kuin citiesCovered -setti
       if (covered.size > citiesCovered.size) {
-        bestStation = station;
+        bestStation = station; // löydettiin uusi sopivin radioasema
+        // sijoitetaan covered-setin alkiot citiesCovered -settiin.
         citiesCovered = covered;
-        //console.log(bestStation);
-        //console.log(citiesCovered);
       }
     });
-    // Difference eli vähennetään setistä toisessa setissä olevat alkiot
-    // kun citiesNeeded tyhjenee, silmukka päättyy
+    // Vähennetään citiesNeeded -setistä citiesCovered -setissä olevat alkiot.
+    // Kun citiesNeeded tyhjenee, silmukka päättyy.
     citiesNeeded = new Set(
       [...citiesNeeded].filter((x) => !citiesCovered.has(x))
     );
-    //console.log(citiesNeeded);
     finalStations.add(bestStation);
   }
 
   return finalStations;
 }
 
-// set on taulukon tapainen tietorakenne jossa ei voi olla identtisiä alkioita eli duplikaatteja.
-// tässä ovat kaupungit joiden on kaikkien oltava asemien kuuluvuusalueella
+// Kaupungit joiden on kaikkien oltava mukana radioasemien kuuluvuusalueilla
 const citiesNeeded = new Set([
   'hel',
   'tam',
@@ -58,7 +55,7 @@ const citiesNeeded = new Set([
   'vaa',
   'oul',
 ]);
-// radioasemat ja niiden kuuluvuusalueella olevat kaupungit (setit) ovat mapissa
+// Radioasemat ja niiden kuuluvuusalueella olevat kaupungit (setit) ovat mapissa
 const stations = new Map();
 stations.set('radio1', new Set(['hel', 'tam', 'tur']));
 stations.set('radio2', new Set(['kou', 'hel', 'lah']));
@@ -66,6 +63,8 @@ stations.set('radio3', new Set(['jyv', 'tam', 'vaa']));
 stations.set('radio4', new Set(['tam', 'tur']));
 stations.set('radio5', new Set(['vaa', 'oul']));
 
+// finalstations sisältää pienimmän mahdollisen määrän radioasemia,
+// joiden yhteinen kuuluvuusalue kattaa kaikki kaupungit
 const finalStations = setCover(stations, citiesNeeded);
 console.log('The final stations are: ');
 console.log(finalStations);
