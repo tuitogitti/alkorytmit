@@ -1,5 +1,5 @@
 /*
- * insertionSort lajittelee taulukon alkiot, jotka ovat numeroita,
+ * InsertionSort lajittelee taulukon alkiot, jotka ovat numeroita,
  * pienimmästä suurimpaan ja palauttaa lajitellun taulukon.
  * Algoritmin nopeus on 0(n*n). Eli jos taulukossa on 8 alkiota,
  * tarvitsee algoritmi suorittaa enintään 64 kertaa. Algoritmi valitsee
@@ -16,8 +16,10 @@ function insertionSort(arr) {
   for (let i = 0; i < arr.length; i++) {
     const temp = arr[i]; // käsiteltävä alkio temp -muuttujaan
     let j = i - 1; // edeltävän alkion indeksi on j
+    // silmukassa verrataan alkioita ja siirretään alkioita eteenpäin
+    // pois käsiteltävän alkion tulevalta paikalta jos käsiteltävä
+    // alkio on edeltäviä alkioita pienempi
     while (j >= 0 && arr[j] > temp) {
-      // jos edeltävä > käsiteltävä
       arr[j + 1] = arr[j]; // edeltävä käsiteltävän paikalle
       j--; // seuraava edeltävä alkio on yhtä pienemmässä indeksissä
     }
