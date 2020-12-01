@@ -21,6 +21,7 @@ function insertionSort(arr) {
     // alkio on edeltäviä alkioita pienempi
     while (j >= 0 && arr[j] > temp) {
       arr[j + 1] = arr[j]; // edeltävä käsiteltävän paikalle
+      // arr[j] = temp; // käsiteltävä edeltävän paikalle, turhaa, mutta havainnollistaa toimintaa
       j--; // seuraava edeltävä alkio on yhtä pienemmässä indeksissä
     }
     // käsiteltävä alkio sijoitetaan oikealle paikalle (tähän mennessä)
