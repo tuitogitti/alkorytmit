@@ -81,7 +81,6 @@ function knn() {
   for (let i = 0; i < k; i++) {
     carray.push(kdarray[i][1][2]);
   }
-  // console.log(farray);
   // 8. Palautetaan yleisin luokka
   return findMostFrequent(carray);
 }
