@@ -1,6 +1,6 @@
 /*
  * Kauppamatkustajan ongelma on lyhimmän reitin valinta kun pitää käydä kaikissa
- * kaupungeisssa joita on n kpl. Se on ehkäpä kuuluisin NP-täydellinen ongelma jonka
+ * kaupungeissa joita on n kpl. Se on ehkäpä kuuluisin NP-täydellinen ongelma jonka
  * ratkaisunopeus pyrittäessä täydelliseen ratkaisuun on O(n!). Jos läpikäytäviä
  * kohteita on vaikkapa sata, nousee erilaisten ratkaisuvaihtoehtojen määrä
  * niin suureksi ettei kaikkien läpikäyminen ole mahdollista eikä järkevää.

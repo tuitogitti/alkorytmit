@@ -5,12 +5,16 @@
  * samanarvoisia vaan algoritmi ottaa kaarien väliset erot (esim. reitin
  * vaatima matka-aika) huomioon.
  *
- * Seuraavassa etsitään nopein reitti verkosta Dijkstran algoritmilla.
- * Algoritmi tarvitsee kolme mappia jotka ovat graph(esittää kaavion),
- * costs(esittää reittien pituudet) ja parents (esittää solmujen(node)
- * edeltävät solmut) sekä yhden taulukon processed(tallentaa käsitellyt
+ * Seuraavassa etsitään nopein reitti solmusta start solmuun finish.
+ * Algoritmi tarvitsee kolme mappia jotka ovat graph (esittää verkon),
+ * costs (esittää reittien pituudet) ja parents (esittää solmujen(node)
+ * edeltävät solmut) sekä yhden taulukon processed (tallentaa käsitellyt
  * solmut). Tarvitaan myös apufunktio (findLowestCostNode), jonka avulla
  * etsitään aina se solmu jonne matka on lyhin.
+ *
+ * Tietorakenteena on käytetty verkon sijasta mappia, eli verkko on rakennettu
+ * mappien avulla, koska ei olla haluttu käyttää mitään ulkopuolisia npm-kirjastoja.
+ * Valmiin graph-tietorakennekirjaston avulla tehtynä algoritmi olisi yksinkertaisempi.
  */
 
 /********************Graph*******************************/
@@ -23,9 +27,9 @@ const bgraph = new Map();
 graph.set('start', startgraph); //aloitussolmu. Sen naapurit on esitetty startgraphissa
 startgraph.set('a', 6); //etäisyys lähdöstä a:han
 startgraph.set('b', 2); //etäisyys lähdöstä b:hen
-graph.set('a', agraph); // a-solmu ja sen naapurit
+graph.set('a', agraph); //a-solmu ja sen naapurit
 agraph.set('finish', 1); //etäisyys a:sta maaliin
-graph.set('b', bgraph); // B-solmu ja sen naapurit
+graph.set('b', bgraph); //b-solmu ja sen naapurit
 bgraph.set('a', 3); //etäisyys b:stä a:han
 bgraph.set('finish', 5); //etäisyys b:stä maaliin
 
@@ -71,7 +75,7 @@ function fastestRouteNodes(parents) {
   while (i < parents.size && typeof lastnode !== 'undefined') {
     route = lastnode + ' -> ' + route; // reitin kasvatus
     lastnode = parents.get(lastnode); // uusi lastnode, ekalla kierroksella tulee b
-    //console.log(lastnode);
+    // console.log(lastnode);
     i++;
   }
   return route;

@@ -3,11 +3,10 @@
  * jolla haetaan verkosta lyhintä reittiä solmusta toiseen läpikäytävien solmujen
  * lukumäärällä mitattuna. Tässä esimerkissä etsitään kontakteja läpi käymällä lähin
  * kontakti henkilöstä 'you' roomalaiseen henkilöön (nimi päättyy us-kirjaimiin).
- * Breadth-first search käyttää jono-tietorakennetta joka on nimensä mukaisesti jono
- * jonka alkupäästä otetaan aina uusi alkio tarkasteluun ja loppupäähän lisätään uusia
- * alkioita. Jono on tässä toteutettu taulukon avulla, mutta JS:lle löytyy npm -pakettina
- * myös oikeita jonon toteutuksia. Algoritmin nopeus on O(henkilöiden lkm + kontaktien lkm)
- * eli O(V+E). V = vertices ja E = edges.
+ * Breadth-first search käyttää jono-tietorakennetta. Jono on tässä toteutettu taulukon 
+ * avulla, mutta JS:lle löytyy npm -pakettina myös valmiita jonon toteutuksia. Myös verkko
+ * on toteutettu mapin avulla, koska valmiiden npm-kirjastojen käyttöä on haluttu välttää.
+ * Algoritmin nopeus on O(henkilöiden lkm + kontaktien lkm) eli O(V+E). V = vertices ja E = edges.
  *
  * https://github.com/tuitogitti/alkorytmit/blob/master/breadthfirstsearch.js
  */
@@ -17,6 +16,7 @@ function search(name) {
   /* Globaali graph-muuttuja näkyy JS:ssä suoraan funktion sisälle.
     Jos muunnat tämän koodin toiselle kielelle, se ei välttämättä näy
     funktion sisään, vaan se pitää tuoda sisään funktion argumenttina */
+  // haun aloittavan henkilön kontaktit jonoon
   searchQueue = searchQueue.concat(graph.get(name));
   // console.log(searchQueue);
   // jo haetut henkilöt tallennetaan taulukkoon, samaa ei haeta kahdesti
@@ -33,6 +33,7 @@ function search(name) {
         return true;
       } else {
         console.log('Search goes through ' + person);
+        // haetun henkilön kontaktit jonoon
         searchQueue = searchQueue.concat(graph.get(person));
         searched.push(person);
       }
