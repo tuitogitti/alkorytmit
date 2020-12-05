@@ -2,7 +2,9 @@
  * BinarySearch hakee järjestetystä taulukosta alkion (item) arvon perusteella sen indeksin.
  * Algoritmin nopeus on 0(logn). Eli jos taulukossa on 8 alkiota, tarvitsee
  * algoritmi suorittaa enintään log8 = 3 kertaa. 2 potenssiin 3 = 8. Ideana on
- * että haettavien alkoiden määrää supistetaan jokaisella hakukierroksella.
+ * että haettavien alkoiden määrä puolitetaan jokaisella hakukierroksella.
+ * Tässä on esitetty iteratiivinen ratkaisu. Algoritmi voidaan toteuttaa myös
+ * rekursiivisesti.
  */
 
 function binarySearch(arr, item) {

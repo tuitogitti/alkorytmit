@@ -3,7 +3,7 @@
  * jolla haetaan verkosta lyhintä reittiä solmusta toiseen läpikäytävien solmujen
  * lukumäärällä mitattuna. Tässä esimerkissä etsitään kontakteja läpi käymällä lähin
  * kontakti henkilöstä 'you' roomalaiseen henkilöön (nimi päättyy us-kirjaimiin).
- * Breadth-first search käyttää jono-tietorakennetta. Jono on tässä toteutettu taulukon 
+ * Breadth-first search käyttää jono-tietorakennetta. Jono on tässä toteutettu taulukon
  * avulla, mutta JS:lle löytyy npm -pakettina myös valmiita jonon toteutuksia. Myös verkko
  * on toteutettu mapin avulla, koska valmiiden npm-kirjastojen käyttöä on haluttu välttää.
  * Algoritmin nopeus on O(henkilöiden lkm + kontaktien lkm) eli O(V+E). V = vertices ja E = edges.
@@ -41,17 +41,7 @@ function search(name) {
   }
 }
 
-// graph on verkko joka on tehty Map-tietorakenteeseen
-const graph = new Map();
-graph.set('you', ['Asterix', 'Senilix', 'Amaryllix']); // omat kontaktit
-graph.set('Asterix', ['Obelix', 'Aladobix', 'Akvavitix']); // Asterixin kontaktit
-graph.set('Senilix', ['Trubadurix', 'Historix']); // Senilixin kontaktit
-graph.set('Amaryllix', ['Aladobix', 'Comix']); // Amaryllixin kontaktit
-graph.set('Akvavitix', ['Aladobix', 'Trajanus']); // Akvavitixin kontaktit
-graph.set('Obelix', ['Asterix', 'Idefix']); // Obelixin kontaktit
-graph.set('Aladobix', ['Asterix', 'Maximus']); // Aladobixin kontaktit
-
-// Tutkitaan onko henkilö roomalainen
+// personIsRoman tutkii onko henkilö roomalainen
 function personIsRoman(name) {
   if (name.slice(name.length - 2) === 'us') {
     return true;
@@ -60,7 +50,15 @@ function personIsRoman(name) {
   }
 }
 
-// console.log(personIsRoman('Justus'));
+// graph on verkko, kontaktiverkosto, joka on tehty Map-tietorakenteeseen
+const graph = new Map();
+graph.set('you', ['Asterix', 'Senilix', 'Amaryllix']); // Omat kontaktit
+graph.set('Asterix', ['Obelix', 'Aladobix', 'Akvavitix']); // Asterixin kontaktit
+graph.set('Senilix', ['Trubadurix', 'Historix']); // Senilixin kontaktit
+graph.set('Amaryllix', ['Aladobix', 'Comix']); // Amaryllixin kontaktit
+graph.set('Akvavitix', ['Aladobix', 'Trajanus']); // Akvavitixin kontaktit
+graph.set('Obelix', ['Asterix', 'Idefix']); // Obelixin kontaktit
+graph.set('Aladobix', ['Asterix', 'Maximus']); // Aladobixin kontaktit
 
 search('you'); // Maximus
 // search('Akvavitix'); // Trajanus
