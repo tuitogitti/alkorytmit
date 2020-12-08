@@ -13,7 +13,7 @@ function binarySearch(arr, item) {
 
   while (low <= high) {
     // toistetaan kunnes etsintä kapenee yhteen alkioon
-    mid = Math.round((low + high) / 2);
+    const mid = Math.round((low + high) / 2);
     if (arr[mid] === item) {
       return mid; // lopetus
     }
