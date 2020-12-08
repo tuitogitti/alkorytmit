@@ -14,12 +14,10 @@ function binarySearch(arr, item) {
   while (low <= high) {
     // toistetaan kunnes etsintä kapenee yhteen alkioon
     mid = Math.round((low + high) / 2);
-    guess = arr[mid];
-    // console.log('kierros'); // voidaan tulostaa hakukierrosten lkm
-    if (item === guess) {
+    if (arr[mid] === item) {
       return mid; // lopetus
     }
-    if (item < guess) {
+    if (item < arr[mid]) {
       // item on puoliväliä alempana
       high = mid - 1; // uusi high
     } else {
