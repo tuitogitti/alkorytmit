@@ -1,7 +1,7 @@
 /*
  * InsertionSort lajittelee taulukon alkiot, jotka ovat numeroita,
  * pienimmästä suurimpaan ja palauttaa lajitellun taulukon.
- * Algoritmin nopeus on 0(n*n). Eli jos taulukossa on 8 alkiota,
+ * Algoritmin nopeus on O(n*n). Eli jos taulukossa on 8 alkiota,
  * tarvitsee algoritmi suorittaa enintään 64 kertaa. Algoritmi valitsee
  * ensin taulukon kaksi ensimmäistä alkiota, vertaa niitä toisiinsa ja
  * vaihtaa tarvittaessa niiden paikat. Sen jälkeen valitaan kolmas alkio
