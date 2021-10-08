@@ -20,30 +20,44 @@ ja vastaava harjoitusdata-alkio sijoitetaan samaan alkioon (alkio on taulukko)
 8. Palautetaan yleisin luokka
 */
 
-// 1. Määritellään harjoitusdata [paino, väri, luokka]
-// 10===punainen, 20===keltainen, 30===vihreä
+// 1. Määritellään harjoitusdata [paino(g), väri, luokka]
+// 1===punainen, 2===keltainen, 3===vihreä
 const trainingData = [
-  [303, 20, 'banaani'],
-  [370, 10, 'omena'],
-  [298, 20, 'banaani'],
-  [277, 20, 'banaani'],
-  [377, 30, 'omena'],
-  [299, 20, 'banaani'],
-  [382, 10, 'omena'],
-  [374, 30, 'omena'],
-  [303, 30, 'banaani'],
-  [309, 20, 'banaani'],
-  [301, 10, 'omena'],
-  [366, 10, 'omena'],
-  [311, 20, 'banaani'],
-  [302, 20, 'banaani'],
-  [313, 10, 'omena'],
-  [373, 30, 'omena'],
-  [305, 20, 'banaani'],
-  [371, 20, 'omena'],
+  [303, 2, 'banaani'],
+  [370, 1, 'omena'],
+  [298, 2, 'banaani'],
+  [277, 2, 'banaani'],
+  [377, 3, 'omena'],
+  [299, 2, 'banaani'],
+  [382, 1, 'omena'],
+  [374, 3, 'omena'],
+  [303, 3, 'banaani'],
+  [309, 2, 'banaani'],
+  [301, 1, 'omena'],
+  [366, 1, 'omena'],
+  [311, 2, 'banaani'],
+  [302, 2, 'banaani'],
+  [313, 1, 'omena'],
+  [373, 3, 'omena'],
+  [305, 2, 'banaani'],
+  [371, 2, 'omena'],
 ];
-// 2. Määritellään tutkittava data
-const sample = [363, 30];
+/* 
+Harjoitusdatan ominaisuuksien numeroarvot ovat "eri skaalassa", mikä
+vääristää etäisyyksien mittaukseen perustuvan knn-algoritmin-toimintaa.
+https://stats.stackexchange.com/questions/287425/why-do-you-need-to-scale-data-in-knn.
+Tämän vuoksi ominaisuudet kannattaa "normalisoida". Yksinkertaisin mahdollinen 
+normalisointi voidaan tehdä kasvattamalla väriarvojen numerot satakertaisiksi, 
+jolloin painot ja väriarvot ovat suunnilleen samassa skaalassa.
+*/
+const td = trainingData.map((subarr) => {
+  return [subarr[0], subarr[1]*100, subarr[2]]
+  })
+
+console.log(td);
+
+// 2. Määritellään tutkittava data. Väriarvo skaalataan.
+const sample = [383, 200];
 // 3. Määritellään k:n arvo
 const k = 3;
 
@@ -67,7 +81,7 @@ function knn() {
   const carray = []; // class array
   // 4. Lasketaan etäisyydet jokaisen harjoitusdata -alkion ja näytteen välillä. Etäisyys
   // ja vastaava harjoitusdata-alkio sijoitetaan samaan alkioon (alkio on taulukko)
-  trainingData.forEach(function (element) {
+  td.forEach(function (element) {
     darray.push([distance(element, sample), element]);
   });
   // 5. Lajitellaan etäisyydet pienimmästä suurimpaan
