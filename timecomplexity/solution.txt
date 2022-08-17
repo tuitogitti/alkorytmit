@@ -1,0 +1,2 @@
+findCommon1: kaksi sisäkkäistä silmukkaa O(n*n), jos n=10, ajankulutus 100, jos n=1000, 1000000
+findCommon2: kaksi peräkkäistä silmukkaa O(n + n), jos n=10, ajankulutus 20, jos n=1000, 2000

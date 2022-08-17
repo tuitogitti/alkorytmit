@@ -1,0 +1,17 @@
+{
+  "name": "timecomplexity",
+  "version": "1.0.0",
+  "description": "aikavaativuus -pohdintatehtävä",
+  "main": "aikavaativuus.js",
+  "directories": {},
+  "scripts": {},
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "tuito",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.21",
+    "eslint-config-google": "^0.14.0"
+  }
+}
