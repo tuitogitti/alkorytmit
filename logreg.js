@@ -21,7 +21,9 @@ const jsregression = require('js-regression'); // js-regression -kirjastomoduuli
 /*
 TrainingData on on tunnettua (hatusta vedettyä) dataa siitä tilaako tietyn
 ikäinen henkilö paperille painettua sanomalehteä: 0==ei, 1==kyllä.
-Dataa on esimerkissä vain todella vähän.
+Dataa on esimerkissä vain todella vähän. Logistinen regressio tarkentuu
+kun harjoitusdata normalisoidaan. Tässä skaalaero iän ja numeroiden 0 ja 1 
+välillä on kuitenkin aika pieni, joten normalisointia ei ole suoritettu.
 */
 const trainingData = [
   [18, 0],
