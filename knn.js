@@ -50,13 +50,13 @@ Tämän vuoksi ominaisuudet kannattaa "normalisoida". Yksinkertaisin mahdollinen
 normalisointi voidaan tehdä kasvattamalla väriarvojen numerot satakertaisiksi, 
 jolloin painot ja väriarvot ovat suunnilleen samassa skaalassa.
 */
-const td = trainingData.map((subarr) => {
+const trdata = trainingData.map((subarr) => {
   return [subarr[0], subarr[1]*100, subarr[2]]
   })
+// logataan konsoliin "normalisoitu" harjoitusdata
+console.log(trdata);
 
-console.log(td);
-
-// 2. Määritellään tutkittava data. Väriarvo skaalataan.
+// 2. Määritellään tutkittava data. Väriarvo skaalataan kuten harjoitusdatassa
 const sample = [383, 200];
 // 3. Määritellään k:n arvo
 const k = 3;
@@ -75,13 +75,13 @@ function findMostFrequent(arr) {
     )
     .pop();
 }
-
-function knn() {
+// Pääfunktio, joka ottaa vastaan harjoitusdatan ja näytteen
+function knn(trdata, sample) {
   const darray = []; // distance array
   const carray = []; // class array
   // 4. Lasketaan etäisyydet jokaisen harjoitusdata -alkion ja näytteen välillä. Etäisyys
   // ja vastaava harjoitusdata-alkio sijoitetaan samaan alkioon (alkio on taulukko)
-  td.forEach(function (element) {
+  trdata.forEach(function (element) {
     darray.push([distance(element, sample), element]);
   });
   // 5. Lajitellaan etäisyydet pienimmästä suurimpaan
@@ -100,5 +100,5 @@ function knn() {
   return findMostFrequent(carray);
 }
 
-const result = knn();
+const result = knn(trdata, sample);
 console.log('Tutkittava objekti on ' + result);

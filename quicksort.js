@@ -13,8 +13,8 @@
 
 function quickSort(arr) {
   let pivot; // taulukosta valitaan arvo johon muita arvoja verrataan
-  const smaller = []; // pienemmmät arvot tähän taulukkoon
-  const bigger = []; // suuremmmat arvot tähän taulukkoon
+  const smaller = []; // pienemmät arvot tähän taulukkoon
+  const bigger = []; // suuremmat arvot tähän taulukkoon
 
   if (arr.length < 2) {
     // base case
