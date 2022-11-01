@@ -43,7 +43,7 @@ melko monimutkainen, joten yksinkertaistamisen vuoksi on käytetty valmista kirj
 Parametrit a,l ja i vaikuttavat algoritmin tehokkuuteen: tarkkuus vs. nopeus. Niiden
 arvoja säädetään riippuen datan määrästä.
 */
-function logReg(a, l, i) {
+function logReg(a, l, i, trdata) {
   // regressio-olio logistic syntyy kirjaston algoritmilla
   const logistic = new jsregression.LogisticRegression({
     alpha: a,
@@ -52,7 +52,7 @@ function logReg(a, l, i) {
   });
 
   /*** Harjoitetaan logistista regressiota harjoitusdatalla ***/
-  const model = logistic.fit(trainingData);
+  const model = logistic.fit(trdata);
   return model; // palautetaan harjoitettu malli
 }
 // Prediction saa parametreikseen harjoitetun mallin ja selittävän muuttujan
@@ -67,7 +67,7 @@ function prediction(model, x) {
 }
 
 const age = 51;
-const model = logReg(0.001, 0, 1000000);
+const model = logReg(0.001, 0, 1000000, trainingData);
 const proba = prediction(model, age);
 
 console.log(
