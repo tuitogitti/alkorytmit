@@ -12,6 +12,12 @@ Aikavaativuudet voi selvittää tutkimalla taulukon iteraatioiden määrää.
 Huomaa että aikavaativuuksien erot näkyvät konkreettisesti vasta
 suuremmilla n-arvoilla. Kommentoi findCommon1 ja findCommon2
 vuorotellen ja katso algoritmin suoritusaika.
+
+TODO: Tee finCommon3-funktio, jossa sama asia, eli kahden taulukon yhteisten
+alkioiden haku, tehdään muuttamalla taulukot joukoiksi eli seteiksi ja
+ottamalla talteen kahden setin leikkaus (unionin vastakohta). Kuinka
+nopea tämä ratkaisu olisi?
+
 */
 
 //*******************createNumArr*************************
@@ -66,7 +72,8 @@ function findCommon2(arr1, arr2) {
   for (let i = 0; i < arr1.length; i++) {
     map.set(arr1[i], 1);
   }
-  // Käydään läpi taulukko arr2
+  // Käydään läpi taulukko arr2. Taulukon ja mapin vertailu on nopeampaa kuin 
+  // kahden taulukon vertailu, joka tehtiin findCommon1-funktiossa.
   for (let j = 0; j < arr2.length; j++) {
     // Jos taulukon arr2 alkio on mapissa, laitetaan alkio tulostaulukkoon
     if (map.get(arr2[j]) && result.indexOf(arr2[j]) < 0) {

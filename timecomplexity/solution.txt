@@ -1,2 +1,6 @@
 findCommon1: kaksi sisäkkäistä silmukkaa O(n*n), jos n=10, ajankulutus 100, jos n=1000, 1000000
 findCommon2: kaksi peräkkäistä silmukkaa O(n + n), jos n=10, ajankulutus 20, jos n=1000, 2000
+
+Todellisuudessa findCommon2 on hieman hitaampi kuin O(n + n), sillä mappiin kohdistuvat operaatiot
+kuluttavat hieman aikaa. Tosin ne ovat paljon nopeampia kuin taulukon läpikäynti, joten koko algoritmin
+nopeus voidaan pyöristää arvoon O(n + n).
